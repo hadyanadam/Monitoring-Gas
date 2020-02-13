@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+
+{% block marquee %}
+    LOG DATA DARI TPA
+{% endblock marquee %}
+
+
+{% block field %}
+
+    <th>No</th>
+    <th>Tiang</th>
+    <th>Time stamp</th>
+    <th>Nilai Sensor Gas</th>
+
+{% endblock field %}
+
+
+{% block record %}
+
+    {% for objek in queryset %}
+        <tr>
+                <td><center>{{ forloop.counter }}</center></td>
+                <td><center>{{objek.no_tiang}}</center></td>
+                <td><center>{{objek.time_stamp}}</center></td>
+                <td><center>{{objek.sensor_value}}</center></td>
+        </tr>
+
+    {% endfor %}
+
+{% endblock record %}
+
+
+{% block link %}
+    <a class="btn btn-primary" href = "{% url 'home' %}"> Real Time </a>
+{% endblock link %}
+
+
+{% block chart %}
+
+{% endblock chart %}
