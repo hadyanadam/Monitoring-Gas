@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u2w)=47^m1r8@unn*o_o8=o@f@dh(71!u)u80k^f6ptygc^o=h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-DEBUG = True
+DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -78,26 +78,26 @@ WSGI_APPLICATION = 'monitoring_gas.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # PRODUCTION
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'khususproject$khususproject$default',
-#         'USER': 'khususproject',
-#         'PASSWORD': 'adam2579',
-#         'HOST': 'khususproject.mysql.pythonanywhere-services.com',
-#     }
-# }
-
-# DEVELOPMENT
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'monitoring_gas',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'khususproject$monitoring_gas',
+        'USER': 'khususproject',
+        'PASSWORD': 'adam2579',
+        'HOST': 'khususproject.mysql.pythonanywhere-services.com',
     }
 }
+
+# DEVELOPMENT
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'monitoring_gas',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
