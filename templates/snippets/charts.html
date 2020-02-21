@@ -34,3 +34,64 @@
 			}
 		});
 </script>
+
+ <script>
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Tiang A', 0],
+          ['Tiang B', 0],
+          ['Tiang C', 0]
+        ]);
+
+        var options = {
+		  max: 1024,
+          width: 800, height: 240,
+          redFrom: 800, redTo: 1024,
+          yellowFrom:600, yellowTo: 800,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+        setInterval(function() {
+			$.ajax({
+				url:'{% url 'api:ajaxgasview' 'Tiang A' %}',
+				dataType: "json",
+				success:function(response){
+					console.log(response)
+					data.setValue(0,1, response.sensor_value);
+					chart.draw(data, options);
+				}
+			});
+        }, 1000);
+        setInterval(function() {
+			$.ajax({
+				url:'{% url 'api:ajaxgasview' 'Tiang B' %}',
+				dataType: "json",
+				success:function(response){
+					console.log(response)
+					data.setValue(1,1, response.sensor_value);
+					chart.draw(data, options);
+				}
+			});
+        }, 1000);
+        setInterval(function() {
+			$.ajax({
+				url:'{% url 'api:ajaxgasview' 'Tiang C' %}',
+				dataType: "json",
+				success:function(response){
+					console.log(response)
+					data.setValue(2,1, response.sensor_value);
+					chart.draw(data, options);
+				}
+			});
+        }, 1000);
+      }
+    </script>

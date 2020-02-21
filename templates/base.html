@@ -60,6 +60,7 @@
 
 
     {% block chart %}
+    <div class="row">
         <div class="col-sm-5" style="float: center;">
             <canvas id="myChart1"></canvas>
             <br>
@@ -87,6 +88,10 @@
                 <p>- Tiang C : NO DATA</p>
             {% endif %}
         </div>
+        <div class="col-sm-5">
+            <div id="chart_div" style="width: 800px; height: 240px;"></div>
+        </div>
+    </div>
 
         {% include 'snippets/charts.html' %}
     {% endblock chart %}
