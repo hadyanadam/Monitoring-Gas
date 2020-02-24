@@ -13,7 +13,7 @@
 
     {% block marquee %}
 
-    REALTIME DATA GAS DARI TPA
+    REALTIME DATA KADAR GAS METANA (CH4) DI TPA GALUGA
     {% endblock marquee %}
 
     </b></marquee></div>
@@ -66,28 +66,34 @@
             <div class="col-md-5" style="float: center;">
                 <canvas id="myChart1"></canvas>
                 <br>
-                {% if tiang1.sensor_value < 200 %}
+                {% if tiang1.sensor_value >= 500 %}
+                    <p class="text-danger">- {{tiang1.no_tiang}} : BERBAHAYA </p>
+                {% elif tiang1.sensor_value >= 250 and tiang1.sensor_value < 500 %}
+                    <p class="text-warning">- {{tiang1.no_tiang}} : SEDANG </p>
+                {% elif tiang1.sensor_value < 250 %}
                     <p class="text-success">- {{tiang1.no_tiang}} : AMAN </p>
-                {% elif tiang1.sensor_value >= 200 %}
-                    <p class="text-danger">- {{tiang1.no_tiang}} : BERBAHAYA</p>
                 {% else %}
                     <p>- Tiang A : NO DATA </p>
                 {% endif %}
 
-                {% if tiang2.sensor_value < 200 %}
+                {% if tiang2.sensor_value >= 500 %}
+                    <p class="text-danger">- {{tiang2.no_tiang}} : BERBAHAYA </p>
+                {% elif tiang2.sensor_value >= 250 and tiang2.sensor_value < 500 %}
+                    <p class="text-warning">- {{tiang2.no_tiang}} : SEDANG </p>
+                {% elif tiang2.sensor_value < 250 %}
                     <p class="text-success">- {{tiang2.no_tiang}} : AMAN </p>
-                {% elif tiang2.sensor_value >= 200 %}
-                    <p class="text-danger">- {{tiang2.no_tiang}} : BERBAHAYA</p>
                 {% else %}
-                    <p>- Tiang B : NO DATA</p>
+                    <p>- Tiang B : NO DATA </p>
                 {% endif %}
 
-                {% if tiang3.sensor_value < 200 %}
+                {% if tiang3.sensor_value >= 500 %}
+                    <p class="text-danger">- {{tiang3.no_tiang}} : BERBAHAYA </p>
+                {% elif tiang3.sensor_value >= 250 and tiang3.sensor_value < 500 %}
+                    <p class="text-warning">- {{tiang3.no_tiang}} : SEDANG </p>
+                {% elif tiang3.sensor_value < 250 %}
                     <p class="text-success">- {{tiang3.no_tiang}} : AMAN </p>
-                {% elif tiang3.sensor_value >= 200 %}
-                    <p class="text-danger">- {{tiang3.no_tiang}} : BERBAHAYA</p>
                 {% else %}
-                    <p>- Tiang C : NO DATA</p>
+                    <p>- Tiang C : NO DATA </p>
                 {% endif %}
             </div>
             <div id="chart_wrap" class="col-md-5">

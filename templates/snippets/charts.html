@@ -9,16 +9,35 @@
 					label: 'Tingkat Gas',
 					data: [{{tiang1.sensor_value}},{{tiang2.sensor_value}},{{tiang3.sensor_value}}],
 					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)'
+					//TIANG1
+					{% if tiang1.sensor_value >= 500 %}
+						'rgba(255, 0, 0, 0.2)',
+					{% elif tiang1.sensor_value >= 250 and tiang1.sensor_value < 500 %}
+						'rgba(255, 255, 0, 0.2)',
+					{% else %}
+						'rgba(0, 255, 0, 0.2)',
+					{% endif %}
+					//TIang 2
+					{% if tiang2.sensor_value >= 500 %}
+						'rgba(255, 0, 0, 0.2)',
+					{% elif tiang2.sensor_value >= 250 and tiang2.sensor_value < 500 %}
+						'rgba(255, 255, 0, 0.2)',
+					{% else %}
+						'rgba(0, 255, 0, 0.2)',
+					{% endif %}
+					//Tiang 3
+					{% if tiang1.sensor_value >= 500 %}
+						'rgba(255, 0, 0, 0.2)',
+					{% elif tiang1.sensor_value >= 250 and tiang1.sensor_value < 500 %}
+						'rgba(255, 255, 0, 0.2)',
+					{% else %}
+						'rgba(0, 255, 0, 0.2)',
+					{% endif %}
 					],
 					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)'
+					'rgba(0,0,0,1)',
+					'rgba(0,0,0,1)',
+					'rgba(0,0,0,1)',
 					],
 					borderWidth: 1
 				}]
@@ -55,20 +74,6 @@
           yellowFrom:600, yellowTo: 800,
           minorTicks: 5
         };
-			{% comment %} options.chartArea = { left: '10%', top: '5%', width: "85%", height: "80%" };
-				
-				//create trigger to resizeEnd event     
-				$(window).resize(function() {
-				if(this.resizeTO) clearTimeout(this.resizeTO);
-				this.resizeTO = setTimeout(function() {
-					$(this).trigger('resizeEnd');
-				}, 500);
-				});
-
-			//redraw graph when window resize is completed  
-			$(window).on('resizeEnd', function() {
-			drawChart(data);
-			}); {% endcomment %}
 //end
         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
 
