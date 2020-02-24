@@ -50,12 +50,26 @@
 
         var options = {
 		  max: 1024,
-          width: 800, height: 240,
+          width: 400, height: 120,
           redFrom: 800, redTo: 1024,
           yellowFrom:600, yellowTo: 800,
           minorTicks: 5
         };
+			{% comment %} options.chartArea = { left: '10%', top: '5%', width: "85%", height: "80%" };
+				
+				//create trigger to resizeEnd event     
+				$(window).resize(function() {
+				if(this.resizeTO) clearTimeout(this.resizeTO);
+				this.resizeTO = setTimeout(function() {
+					$(this).trigger('resizeEnd');
+				}, 500);
+				});
 
+			//redraw graph when window resize is completed  
+			$(window).on('resizeEnd', function() {
+			drawChart(data);
+			}); {% endcomment %}
+//end
         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
 
         chart.draw(data, options);
