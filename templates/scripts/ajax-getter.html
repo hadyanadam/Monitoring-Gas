@@ -1,0 +1,41 @@
+<script>
+let nilai = [];
+let timestamp = [];
+setInterval(
+    function(){
+        $.ajax({
+            url:'{% url 'api:ajaxgasview' 'Tiang A' %}',
+            dataType: "json",
+            success:function(response){
+                console.log(response.sensor_value);
+                nilai[0] = response.sensor_value;
+                timestamp[0] = response.time_stamp;
+            },
+
+    });
+},1000);
+setInterval(
+    function(){
+        $.ajax({
+            url:'{% url 'api:ajaxgasview' 'Tiang B' %}',
+            dataType: "json",
+            success:function(response){
+                console.log(response.sensor_value);
+                nilai[1] = response.sensor_value;
+                timestamp[1] = response.time_stamp;},
+
+    });	
+    }, 1000);
+setInterval(
+    function(){
+        $.ajax({
+            url:'{% url 'api:ajaxgasview' 'Tiang C' %}',
+            dataType: "json",
+            success:function(response){
+                console.log(response.sensor_value);
+                nilai[2] = response.sensor_value;
+                timestamp[2] = response.time_stamp;},
+
+    });	
+    }, 1000);
+</script>
