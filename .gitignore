@@ -1,8 +1,10 @@
 *.log
 *.pot
 *.pyc
-*/*/*/__pycache__/
-*/*/__pycache__/
-*/__pycache__/
-api/__pycache__/
+*/*/*/__pycache__/*
+*/*/__pycache__/*
+*/__pycache__/*
+api/__pycache__/*
+monitoring_gas/__pycache__/*
 etc/static/
+monitoring_gas/settings.py
