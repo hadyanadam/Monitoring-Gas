@@ -9,12 +9,12 @@
 </head>
 
 <div class="panel-heading"><marquee style="color:red; font-size: 24px;"><b>
-    
+
     {% block marquee %}
-        
+
     REALTIME DATA GAS DARI TPA
     {% endblock marquee %}
-        
+
     </b></marquee></div>
 <center><div style="color:darkgreen; font-size: 24px;">
         </div></center>
@@ -23,73 +23,75 @@
     {% block link %}
     {% endblock link %}
     {% block table %}
-        <table class="table table-bordered table-striped table-hover">
-            <thead class="thead-dark">
-                <tr bgcolor="#7FFFD4" align="center">
-                {% block field %}
-                    <th>No</th>
-                    <th>Time stamp</th>
-                    <th>Nilai Sensor Gas</th>
-                {% endblock field %}
-                </tr>
-            </thead>
-            </tbody>
-                {% block record %}
-                <tr>
-                        <td><center>{{tiang1.no_tiang}}</center></td>
-                        <td><center>{{tiang1.time_stamp}}</center></td>
-                        <td><center>{{tiang1.sensor_value}}</center></td>
-                </tr>
-                <tr>
-                        <td><center>{{tiang2.no_tiang}}</center></td>
-                        <td><center>{{tiang2.time_stamp}}</center></td>
-                        <td><center>{{tiang2.sensor_value}}</center></td>
-                </tr>
-                <tr>
-                        <td><center>{{tiang3.no_tiang}}</center></td>
-                        <td><center>{{tiang3.time_stamp}}</center></td>
-                        <td><center>{{tiang3.sensor_value}}</center></td>
-                </tr>
+        <div class="table-responsive-md">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                    {% block field %}
+                        <th scope="col">No</th>
+                        <th scope="col">Time stamp</th>
+                        <th scope="col">Nilai Sensor Gas</th>
+                    {% endblock field %}
+                    </tr>
+                </thead>
+                </tbody>
+                    {% block record %}
+                    <tr>
+                                <td><center>{{tiang1.no_tiang}}</center></td>
+                                <td><center>{{tiang1.time_stamp}}</center></td>
+                                <td><center>{{tiang1.sensor_value}}</center></td>
+                    </tr>
+                    <tr>
+                                <td><center>{{tiang2.no_tiang}}</center></td>
+                                <td><center>{{tiang2.time_stamp}}</center></td>
+                                <td><center>{{tiang2.sensor_value}}</center></td>
+                    </tr>
+                    <tr>
+                                <td><center>{{tiang3.no_tiang}}</center></td>
+                                <td><center>{{tiang3.time_stamp}}</center></td>
+                                <td><center>{{tiang3.sensor_value}}</center></td>
+                    </tr>
 
-                {% endblock record %}
-            </tbody>
-        </table>
+                    {% endblock record %}
+                </tbody>
+            </table>
+        </div>
     {% endblock table %}
-
-    
 
 
     {% block chart %}
-    <div class="row">
-        <div class="col-sm-5" style="float: center;">
-            <canvas id="myChart1"></canvas>
-            <br>
-            {% if tiang1.sensor_value < 200 %}
-                <p class="text-success">- {{tiang1.no_tiang}} : AMAN </p>
-            {% elif tiang1.sensor_value >= 200 %}
-                <p class="text-danger">- {{tiang1.no_tiang}} : BERBAHAYA</p>
-            {% else %}
-                <p>- Tiang A : NO DATA </p>
-            {% endif %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5" style="float: center;">
+                <canvas id="myChart1"></canvas>
+                <br>
+                {% if tiang1.sensor_value < 200 %}
+                    <p class="text-success">- {{tiang1.no_tiang}} : AMAN </p>
+                {% elif tiang1.sensor_value >= 200 %}
+                    <p class="text-danger">- {{tiang1.no_tiang}} : BERBAHAYA</p>
+                {% else %}
+                    <p>- Tiang A : NO DATA </p>
+                {% endif %}
 
-            {% if tiang2.sensor_value < 200 %}
-                <p class="text-success">- {{tiang2.no_tiang}} : AMAN </p>
-            {% elif tiang2.sensor_value >= 200 %}
-                <p class="text-danger">- {{tiang2.no_tiang}} : BERBAHAYA</p>
-            {% else %}
-                <p>- Tiang B : NO DATA</p>
-            {% endif %}
+                {% if tiang2.sensor_value < 200 %}
+                    <p class="text-success">- {{tiang2.no_tiang}} : AMAN </p>
+                {% elif tiang2.sensor_value >= 200 %}
+                    <p class="text-danger">- {{tiang2.no_tiang}} : BERBAHAYA</p>
+                {% else %}
+                    <p>- Tiang B : NO DATA</p>
+                {% endif %}
 
-            {% if tiang3.sensor_value < 200 %}
-                <p class="text-success">- {{tiang3.no_tiang}} : AMAN </p>
-            {% elif tiang3.sensor_value >= 200 %}
-                <p class="text-danger">- {{tiang3.no_tiang}} : BERBAHAYA</p>
-            {% else %}
-                <p>- Tiang C : NO DATA</p>
-            {% endif %}
-        </div>
-        <div class="col-sm-5">
-            <div id="chart_div" style="width: 800px; height: 240px;"></div>
+                {% if tiang3.sensor_value < 200 %}
+                    <p class="text-success">- {{tiang3.no_tiang}} : AMAN </p>
+                {% elif tiang3.sensor_value >= 200 %}
+                    <p class="text-danger">- {{tiang3.no_tiang}} : BERBAHAYA</p>
+                {% else %}
+                    <p>- Tiang C : NO DATA</p>
+                {% endif %}
+            </div>
+            <div class="col-md-5">
+                <div id="chart_div" style="width: 400px; height: 120px;"></div>
+            </div>
         </div>
     </div>
 

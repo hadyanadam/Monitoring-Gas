@@ -20,6 +20,7 @@ class AjaxGasView(RetrieveAPIView):
     serializer_class = SensorGasSerializer
     lookup_field= "no_tiang"
 
+    #MERUBAH OUTPUT DI VIEW CARA 1
     def get_object(self, queryset=None):
         no_tiang= self.kwargs.get('no_tiang')
         obj = SensorGasModel.objects.filter(no_tiang=no_tiang).order_by('-time_stamp')[0]
