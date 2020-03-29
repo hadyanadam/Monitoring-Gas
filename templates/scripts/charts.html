@@ -10,25 +10,25 @@
 					data: [{{tiang1.sensor_value}},{{tiang2.sensor_value}},{{tiang3.sensor_value}}],
 					backgroundColor: [
 					//TIANG1
-					{% if tiang1.sensor_value >= 500 %}
+					{% if tiang1.sensor_value >= 1000 %}
 						'rgba(255, 0, 0, 0.2)',
-					{% elif tiang1.sensor_value >= 250 and tiang1.sensor_value < 500 %}
+					{% elif tiang1.sensor_value >= 500 and tiang1.sensor_value < 1000 %}
 						'rgba(255, 255, 0, 0.2)',
 					{% else %}
 						'rgba(0, 255, 0, 0.2)',
 					{% endif %}
 					//TIang 2
-					{% if tiang2.sensor_value >= 500 %}
+					{% if tiang2.sensor_value >= 1000 %}
 						'rgba(255, 0, 0, 0.2)',
-					{% elif tiang2.sensor_value >= 250 and tiang2.sensor_value < 500 %}
+					{% elif tiang2.sensor_value >= 500 and tiang2.sensor_value < 1000 %}
 						'rgba(255, 255, 0, 0.2)',
 					{% else %}
 						'rgba(0, 255, 0, 0.2)',
 					{% endif %}
 					//Tiang 3
-					{% if tiang1.sensor_value >= 500 %}
+					{% if tiang1.sensor_value >= 1000 %}
 						'rgba(255, 0, 0, 0.2)',
-					{% elif tiang1.sensor_value >= 250 and tiang1.sensor_value < 500 %}
+					{% elif tiang1.sensor_value >= 500 and tiang1.sensor_value < 1000 %}
 						'rgba(255, 255, 0, 0.2)',
 					{% else %}
 						'rgba(0, 255, 0, 0.2)',
@@ -84,7 +84,7 @@
         ]);
 
         options = {
-		  max: 1024,
+		  max: 3000,
           width: '100%', height: '120px',
           redFrom: 500, redTo: 1024,
           yellowFrom:250, yellowTo: 500,
