@@ -55,10 +55,10 @@
 		setInterval(function(){
 			myChart.data.datasets[0].data = nilai;
 			myChart.data.datasets[0].data.forEach(function(item,index){
-				if(item >= 500){
+				if(item >= 1000){
 					myChart.data.datasets[0].backgroundColor[index] = 'rgba(255, 0, 0, 0.2)';
 				}
-				else if(item >= 250 && item <500){
+				else if(item >= 200 && item <1000){
 					myChart.data.datasets[0].backgroundColor[index] = 'rgba(255, 255, 0, 0.2)';
 				}
 				else{
