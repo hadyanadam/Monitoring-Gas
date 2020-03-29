@@ -27,6 +27,11 @@ def homeView(request):
 
 def logView(request):
     queryset = SensorGasModel.objects.all().order_by('time_stamp')
+    # for instance in queryset:
+    #     val = instance.sensor_value
+    #     ppm =  (10000/ 4096) * val + 200
+    #     instance.sensor_value = ppm
+    #     instance.save()
     context = {
         'judul' : 'Log Data',
         'queryset': queryset,
