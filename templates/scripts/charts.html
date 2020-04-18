@@ -1,5 +1,5 @@
 
-<script>
+{% comment %} <script>
 		var ctx = document.getElementById("myChart1").getContext('2d');
 		var myChart = new Chart(ctx, {
 			type: 'bar',
@@ -67,9 +67,13 @@
 			});
 			myChart.update();
 		},5000);
-</script>
+</script> {% endcomment %}
 
  <script>
+ 	  let data_gauge = [{{tiang1.sensor_value}},{{tiang2.sensor_value}},{{tiang3.sensor_value}}]
+	  setInterval(function(){
+		data_gauge = nilai;
+	  },5000);
       google.charts.load('current', {'packages':['gauge']});
       google.charts.setOnLoadCallback(drawChart);
 	  let data;
@@ -95,7 +99,7 @@
 
         chart.draw(data, options);
 		setInterval(function(){
-			window.myChart.data.datasets[0].data.forEach(function(item,index){
+			data_gauge.forEach(function(item,index){
 				data.setValue(index,1,item);
 				chart.draw(data, options);
 			});
