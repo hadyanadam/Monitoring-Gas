@@ -63,7 +63,7 @@
     {% block chart %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5" style="float: center;">
+            {% comment %} <div class="col-md-5" style="float: center;">
                 <canvas id="myChart1"></canvas>
                 <br>
                 {% if tiang1.sensor_value >= 1000 %}
@@ -95,7 +95,7 @@
                 {% else %}
                     <p>- Tiang C : NO DATA </p>
                 {% endif %}
-            </div>
+            </div> {% endcomment %}
             <div id="chart_wrap" class="col-md-5">
                 <div id="chart_div"></div>
             </div>
