@@ -60,47 +60,6 @@
             </table>
         </div>
     {% endblock table %}
-
-
-    {% block chart %}
-    <div class="container-fluid">
-            {% comment %} <div class="col-md-5" style="float: center;">
-                <canvas id="myChart1"></canvas>
-                <br>
-                {% if tiang1.sensor_value >= 1000 %}
-                    <p class="text-danger">- {{tiang1.no_tiang}} : BERBAHAYA </p>
-                {% elif tiang1.sensor_value >= 500 and tiang1.sensor_value < 1000 %}
-                    <p class="text-warning">- {{tiang1.no_tiang}} : SEDANG </p>
-                {% elif tiang1.sensor_value < 200 %}
-                    <p class="text-success">- {{tiang1.no_tiang}} : AMAN </p>
-                {% else %}
-                    <p>- Tiang A : NO DATA </p>
-                {% endif %}
-
-                {% if tiang2.sensor_value >= 1000 %}
-                    <p class="text-danger">- {{tiang2.no_tiang}} : BERBAHAYA </p>
-                {% elif tiang2.sensor_value >= 500 and tiang2.sensor_value < 1000 %}
-                    <p class="text-warning">- {{tiang2.no_tiang}} : SEDANG </p>
-                {% elif tiang2.sensor_value < 200 %}
-                    <p class="text-success">- {{tiang2.no_tiang}} : AMAN </p>
-                {% else %}
-                    <p>- Tiang B : NO DATA </p>
-                {% endif %}
-
-                {% if tiang3.sensor_value >= 1000 %}
-                    <p class="text-danger">- {{tiang3.no_tiang}} : BERBAHAYA </p>
-                {% elif tiang3.sensor_value >= 500 and tiang3.sensor_value < 1000 %}
-                    <p class="text-warning">- {{tiang3.no_tiang}} : SEDANG </p>
-                {% elif tiang3.sensor_value < 200 %}
-                    <p class="text-success">- {{tiang3.no_tiang}} : AMAN </p>
-                {% else %}
-                    <p>- Tiang C : NO DATA </p>
-                {% endif %}
-            </div> {% endcomment %}
-            <div id="chart_wrap">
-                <div id="chart_div"></div>
-            </div>
-    </div>
 <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
   <div class="toast" style="position: absolute; top: 0; right: 0;">
     <div class="toast-header">
@@ -116,6 +75,14 @@
     </div>
   </div>
 </div>
+
+    {% block chart %}
+    <div class="container-fluid">
+            <div id="chart_wrap">
+                <div id="chart_div"></div>
+            </div>
+    </div>
+
 
 {% include 'scripts/charts.html' %}
     {% endblock chart %}
