@@ -21,6 +21,44 @@
         </div></center>
 <body bgcolor="#87cefa">
 
+    <script>
+        {% if tiang1.sensor_value >= 1000 %}
+            let toast = VanillaToasts.create({
+                title: 'Tiang 1',
+                text: 'STATUS: BERBAHAYA',
+                type: 'error',
+                positionClass: 'bottomRight',
+                timeout: 5000, // hide after 5000ms, // optional parameter
+
+            });
+            VanillaToasts.setTimeout(toast.id, 1000);
+        {% endif %}
+
+        {% if tiang1.sensor_value >= 1000 %}
+            let toast = VanillaToasts.create({
+                title: 'Tiang 2',
+                text: 'Status Berbahaya',
+                type: 'error',
+                positionClass: 'bottomRight',
+                timeout: 5000, // hide after 5000ms, // optional parameter
+
+            });
+            VanillaToasts.setTimeout(toast.id, 1000);
+        {% endif %}
+
+        {% if tiang1.sensor_value >= 1000 %}
+            let toast = VanillaToasts.create({
+                title: 'Tiang 3',
+                text: 'STATUS: BERBAHAYA',
+                type: 'error',
+                positionClass: 'bottomRight',
+                timeout: 5000, // hide after 5000ms, // optional parameter
+
+            });
+            VanillaToasts.setTimeout(toast.id, 1000);
+        {% endif %}
+    </script>
+
     {% block link %}
     {% endblock link %}
     {% block table %}
