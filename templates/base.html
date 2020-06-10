@@ -104,9 +104,33 @@
 
 {% include 'scripts/charts.html' %}
     {% endblock chart %}
+<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+  <!-- Position it -->
+  <div style="position: absolute; top: 0; right: 0;">
 
-    <script>
-        {% if tiang1.sensor_value >= 1000 %}
+    <!-- Then put toasts within -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="..." class="rounded mr-2" alt="...">
+        <strong class="mr-auto">Bootstrap</strong>
+        <small class="text-muted">just now</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+        See? Just like this.
+      </div>
+    </div>
+  </div>
+
+<script>
+$(document).ready(function(){
+  $('.toast').toast('show');
+});
+</script>
+{% comment %} <script>
+        {% if tiang1.sensor_value >= 500 %}
             let toast1 = VanillaToasts.create({
                 title: 'Tiang 1',
                 text: 'STATUS: BERBAHAYA',
@@ -117,7 +141,7 @@
             });
         {% endif %}
 
-        {% if tiang2.sensor_value >= 1000 %}
+        {% if tiang2.sensor_value >= 500 %}
             let toast2 = VanillaToasts.create({
                 title: 'Tiang 2',
                 text: 'Status Berbahaya',
@@ -128,7 +152,7 @@
             });
         {% endif %}
 
-        {% if tiang3.sensor_value >= 1000 %}
+        {% if tiang3.sensor_value >= 500 %}
             let toast3 = VanillaToasts.create({
                 title: 'Tiang 3',
                 text: 'STATUS: BERBAHAYA',
@@ -138,7 +162,7 @@
 
             });
         {% endif %}
-    </script>
+    </script> {% endcomment %}
 
 </body>
 </html>
