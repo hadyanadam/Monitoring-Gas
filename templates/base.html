@@ -21,40 +21,7 @@
         </div></center>
 <body bgcolor="#87cefa">
 
-    <script>
-        {% if tiang1.sensor_value >= 1000 %}
-            let toast = VanillaToasts.create({
-                title: 'Tiang 1',
-                text: 'STATUS: BERBAHAYA',
-                type: 'error',
-                positionClass: 'bottomRight',
-                timeout: 5000, // hide after 5000ms, // optional parameter
 
-            });
-        {% endif %}
-
-        {% if tiang1.sensor_value >= 1000 %}
-            let toast = VanillaToasts.create({
-                title: 'Tiang 2',
-                text: 'Status Berbahaya',
-                type: 'error',
-                positionClass: 'bottomRight',
-                timeout: 5000, // hide after 5000ms, // optional parameter
-
-            });
-        {% endif %}
-
-        {% if tiang1.sensor_value >= 1000 %}
-            let toast = VanillaToasts.create({
-                title: 'Tiang 3',
-                text: 'STATUS: BERBAHAYA',
-                type: 'error',
-                positionClass: 'bottomRight',
-                timeout: 5000, // hide after 5000ms, // optional parameter
-
-            });
-        {% endif %}
-    </script>
 
     {% block link %}
     {% endblock link %}
@@ -138,6 +105,40 @@
 {% include 'scripts/charts.html' %}
     {% endblock chart %}
 
+    <script>
+        {% if tiang1.sensor_value >= 1000 %}
+            let toast1 = VanillaToasts.create({
+                title: 'Tiang 1',
+                text: 'STATUS: BERBAHAYA',
+                type: 'error',
+                positionClass: 'bottomRight',
+                timeout: 5000, // hide after 5000ms, // optional parameter
+
+            });
+        {% endif %}
+
+        {% if tiang2.sensor_value >= 1000 %}
+            let toast2 = VanillaToasts.create({
+                title: 'Tiang 2',
+                text: 'Status Berbahaya',
+                type: 'error',
+                positionClass: 'bottomRight',
+                timeout: 5000, // hide after 5000ms, // optional parameter
+
+            });
+        {% endif %}
+
+        {% if tiang3.sensor_value >= 1000 %}
+            let toast3 = VanillaToasts.create({
+                title: 'Tiang 3',
+                text: 'STATUS: BERBAHAYA',
+                type: 'error',
+                positionClass: 'bottomRight',
+                timeout: 5000, // hide after 5000ms, // optional parameter
+
+            });
+        {% endif %}
+    </script>
 
 </body>
 </html>
