@@ -7,7 +7,7 @@ class SensorGasModel(models.Model):
         ('Tiang B',"B"),
         ('Tiang C',"C"),
     ]
-    time_stamp = models.DateTimeField(editable =False,auto_now_add=True)
+    time_stamp = models.DateTimeField(editable =True,auto_now_add=False)
     no_tiang = models.CharField(max_length = 10,choices = TIANG_ID,default = None)
     sensor_value = models.IntegerField()
     def __str__(self):
