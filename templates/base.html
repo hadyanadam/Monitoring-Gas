@@ -20,18 +20,22 @@
 <center><div style="color:darkgreen; font-size: 24px;">
         </div></center>
 <body bgcolor="#87cefa">
-<div class="alert alert-danger" role="alert">
-        {% if tiang1.sensor_value >= 500 %}
-            Tiang 1 : BERBAHAYA
-        {% endif %}
-        {% if tiang2.sensor_value >= 500 %}
-            Tiang 2 : BERBAHAYA
-        {% endif %}
-        {% if tiang3.sensor_value >= 500 %}
-            Tiang 3 : BERBAHAYA
-        {% endif %}
-</div>
 
+{% if tiang1.sensor_value >= 500 %}
+<div class="alert alert-danger" role="alert">
+            <center>Gas Metana di daerah Tiang A sudah mencapai status BERBAHAYA</center>
+</div>
+{% endif %}
+{% if tiang2.sensor_value >= 500 %}
+<div class="alert alert-danger" role="alert">
+            <center>Gas Metana di daerah Tiang B sudah mencapai status BERBAHAYA</center>
+</div>
+{% endif %}
+{% if tiang3.sensor_value >= 500 %}
+<div class="alert alert-danger" role="alert">
+            <center>Gas Metana di daerah Tiang C sudah mencapai status BERBAHAYA</center>
+</div>
+{% endif %}
 
     {% block link %}
     {% endblock link %}
